@@ -1,6 +1,6 @@
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
-import { useSortableTable } from "../useSortableTable";
+import { useSortableTable } from "./useSortableTable";
 
 
 import React from 'react'
