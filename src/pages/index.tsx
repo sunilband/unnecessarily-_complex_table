@@ -2,10 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-
 import Table from "./components/Table";
-import tableData1 from "./tableData1.json";
-import tableData3 from "./tableData3.json";
+// import tableData3 from "./tableData3.json";
 import axios from "axios"
 import { useEffect,useState } from 'react';
 
@@ -36,7 +34,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   
-  const [data,setData]=useState(tableData3)
+  const [data,setData]=useState([])
   const [render,setRender]=useState(false)
   const [rows,setRows]=useState(10)
 
