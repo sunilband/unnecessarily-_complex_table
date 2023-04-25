@@ -13,7 +13,7 @@ const TableBody = (props: Props) => {
   
   return (
    
-    <tbody className="cursor-pointer">
+    <tbody className="cursor-pointer overflow-hidden">
       {props.tableData?props.tableData.map((data: any, key: any) => {
          address = Object.values(data["address"]).slice(1, 8).join();
         return (

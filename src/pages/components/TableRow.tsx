@@ -55,8 +55,8 @@ const TableRow = (props: Props) => {
                 );
               })}
             </tr>
-            <tr id={props.address} className="text-center text-sm hidden focus:visible" >
-                <td className='absolute w-[58.5%] h-12 border-2 '>{props.address}</td>
+            <tr id={props.address} className="text-center text-sm hidden" >
+                <td className='absolute  w-full h-12 border-2 '>{props.address}</td>
                 </tr>
             </>:null
             
