@@ -6,14 +6,8 @@ import Table from "./components/Table";
 import tableData3 from "./tableData3.json";
 import axios from "axios"
 import { useEffect,useState } from 'react';
+import useFetch from "./components/useFetch"
 
-// const columns = [
-//   { label: "Full Name", accessor: "full_name", sortable: true },
-//   { label: "Email", accessor: "email", sortable: false },
-//   { label: "Gender", accessor: "gender", sortable: true, sortbyOrder: "desc" },
-//   { label: "Age", accessor: "age", sortable: true },
-//   { label: "Start date", accessor: "start_date", sortable: true },
-// ];
 
 const columns = [
   { label: "ID", accessor: "id", sortable: true ,sortbyOrder: "desc"},
@@ -34,24 +28,27 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   
-  const [data,setData]=useState(tableData3)
-  const [render,setRender]=useState(false)
+  // const [data,setData]=useState(tableData3)
+  // const [render,setRender]=useState(false)
   const [rows,setRows]=useState(10)
 
-  useEffect(()=>{
-      setRender(false)
-      let res=axios.get(`https://fakerapi.it/api/v1/persons?_locale=en_EN&_quantity=${rows}`)
-      .then((response)=>{
-        setData(response.data.data)
-        setRender(true) 
-        console.log(rows)
-      }) 
-  },[rows])
+  // useEffect(()=>{
+  //     setRender(false)
+  //     let res=axios.get(`https://fakerapi.it/api/v1/persons?_locale=en_EN&_quantity=${rows}`)
+  //     .then((response)=>{
+  //       setData(response.data.data)
+  //       setRender(true) 
+  //     }) 
+  // },[rows])
 
+  const { render, data} = useFetch(
+    `https://fakerapi.it/api/v1/persons?_locale=en_EN&_quantity=${rows}`
+  )
+  // setRender(true)
+ 
   
   return (
-    render&&<div className="table_container">
-      
+    !render && <div className="table_container">
       <Table
         caption="Submission by Sunil Band ph:+918390685016 email:sunilbandwork@gmail.com"
         data={data}
@@ -59,9 +56,7 @@ export default function Home() {
         setRows={setRows}
         rows={rows}
       />
-      {/* <br />
-      <RenderAnotherTable />
-      <br /> */}
     </div>
+   
   )
 }
