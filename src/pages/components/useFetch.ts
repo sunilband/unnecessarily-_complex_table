@@ -20,7 +20,7 @@ import axios from "axios";
     fetchData();
   }, [url]);
 
-  return { render:render, data:data };
+  return [render,data];
 };
 
   export default useFetch

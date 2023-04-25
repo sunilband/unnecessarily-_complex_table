@@ -41,7 +41,7 @@ export default function Home() {
   //     }) 
   // },[rows])
 
-  const { render, data} = useFetch(
+  const [render, data] = useFetch(
     `https://fakerapi.it/api/v1/persons?_locale=en_EN&_quantity=${rows}`
   )
   // setRender(true)
