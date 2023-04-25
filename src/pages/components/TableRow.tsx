@@ -10,9 +10,8 @@ type Props = {
 }
 
 const TableRow = (props: Props) => {
-  return (<>
+  return (props.data?<>
     <tr key={props.data.id}>
-        
               {
               props.columns.map(({ accessor }: any) => {
                 let tData: any = "——";
@@ -58,7 +57,7 @@ const TableRow = (props: Props) => {
             <tr id={props.address} className="text-center text-sm hidden" >
                 <td>{props.address}</td>
                 </tr>
-            </>
+            </>:null
             
   )
 }
