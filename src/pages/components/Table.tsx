@@ -14,7 +14,7 @@ type Props = {
 }
 
 const Table = (props: Props) => {
-  const [tableData, handleSorting] = useSortableTable(props.data, props.columns);
+  const [tableData, handleSorting] = useSortableTable(props.data?props.data:[], props.columns?props.columns:[]);
   return (
           <>
             <table className="table">

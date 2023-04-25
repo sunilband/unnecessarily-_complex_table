@@ -40,7 +40,7 @@ const TableHead = (props: Props) => {
         </th>
       </tr>
       <tr>
-        {props.columns.map(({ label, accessor, sortable }: any) => {
+        {props.columns?props.columns.map(({ label, accessor, sortable }: any) => {
           const cl = sortable
             ? sortField === accessor && order === "asc"
               ? "up"
@@ -59,7 +59,7 @@ const TableHead = (props: Props) => {
               {label}
             </th>
           );
-        })}
+        }):null}
       </tr>
     </thead>
   );

@@ -10,7 +10,7 @@ const TableBody = (props: Props) => {
   let address = "";
   return (
     <tbody className="cursor-pointer">
-      {props.tableData.map((data: any, key: any) => {
+      {props.tableData?props.tableData.map((data: any, key: any) => {
         return (
           <>
             <tr key={data.id}>
@@ -59,7 +59,7 @@ const TableBody = (props: Props) => {
             </p>
           </>
         );
-      })}
+      }):null}
     </tbody>
   );
 };
