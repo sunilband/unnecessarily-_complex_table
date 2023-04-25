@@ -17,7 +17,7 @@ const TableBody = (props: Props) => {
       {props.tableData?props.tableData.map((data: any, key: any) => {
          address = Object.values(data["address"]).slice(1, 8).join();
         return (
-          <TableRow data={data} key={key} columns={props.columns} address={address} />
+          <TableRow data={data} key={key} columns={props.columns} address={address}/>
         ); 
       }):null}
       
