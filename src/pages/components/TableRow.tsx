@@ -11,7 +11,16 @@ type Props = {
 
 const TableRow = (props: Props) => {
   return (props.data?<>
-    <tr key={props.data.id} >
+    <tr key={props.data.id} onClick={() => {
+                      let x = document.getElementById(props.address);
+                      if (x !== null) {
+                        if (x.style.display === "none") {
+                          x.style.display = "block";
+                        } else {
+                          x.style.display = "none";
+                        }
+                      }
+                    }}>
               {
               props.columns.map(({ accessor }: any) => {
                 let tData: any = "——";
@@ -38,17 +47,7 @@ const TableRow = (props: Props) => {
                     <td
                     colSpan={1}
                     key={accessor}
-                    onClick={() => {
-                      let x = document.getElementById(props.address);
-                      if (x !== null) {
-                        if (x.style.display === "none") {
-                          x.style.display = "block";
-                        } else {
-                          x.style.display = "none";
-                        }
-                      }
-                    }}
-                    style={{width:'150px'}}
+                     
                   >
                     {tData}
                   </td> 
